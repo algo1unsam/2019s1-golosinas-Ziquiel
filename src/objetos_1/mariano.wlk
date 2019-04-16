@@ -1,21 +1,25 @@
+import golosinas.*
 object mariano {
 
 	// para este objeto no damos pistas
 	// definimos algunos métodos para que compile el test
 	var bolsa = #{}
-	var gustos = []
+	//var gustos = []
 
 	method comprar(golosina) {
-		bolsa.add(#{golosina})
-		gustos.add(#{golosina.gusto()})
+		bolsa.add(golosina)
+		//gustos.add(#{golosina.gusto()})
 	}
-
+	
+	method mostrar(){
+		return bolsa
+	}
 	method desechar(golosina) {
-		bolsa.remove(#{ golosina })
+		bolsa.remove( golosina )
 	}
 
 	method probarGolosinas() {
-		bolsa.forEach{ golosina => golosina.masticar()}
+		bolsa.forEach{ golosina => golosina.mordisco()}
 	}
 
 	method hayGolosinasSinTacc() {
@@ -30,14 +34,18 @@ object mariano {
 		return bolsa.find{ golosina => golosina.gusto() == sabor }
 	}
 
-	method golosinDeSabor(sabor) {
-		return bolsa.all{ golosina => golosina.gusto() == sabor }
+	method golosinasDeSabor(sabor) {
+		return bolsa.filter{ golosina => golosina.gusto() == sabor }
 	}
 	method sabores (){
-		return gustos
+		return bolsa.map{ golosina => golosina.gusto() }
+		//return gustos
 	}
 	method golosinaMasCara(){
 		return bolsa.max{golosina => golosina.precio()}
 	}
+	method pesoGolosinas(){
+		return bolsa.sum{golosina=> golosina.peso()}
+		}
 }
 

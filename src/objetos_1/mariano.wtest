@@ -1,6 +1,6 @@
 import golosinas.*
 import mariano.*
-
+/*
 describe "tests de mariano" {
 
 	fixture {
@@ -21,7 +21,7 @@ describe "tests de mariano" {
 	test "probar golosinas" {
 		/* habilitar las lineas anuladas cuando se complete la definicion 
 		 * de las golosinas
-		 */
+
 //		assert.equals(100, chocolatin.peso())
 //		assert.equals(5, caramelo.peso())
 		assert.equals(15, bombon.peso())
@@ -32,4 +32,18 @@ describe "tests de mariano" {
 	}
 	
 }
-
+*/
+	test "comprar golosinas" {
+		mariano.comprar(alfajor)
+		assert.equals(alfajor, mariano.mostrar())
+	}
+	test "desechar golosinas"{
+		mariano.comprar(alfajor)
+		mariano.desechar(alfajor)
+		assert.equals(#{},mariano.mostrar())
+	}
+	test "probar golosinas"{
+		mariano.comprar(alfajor)
+		mariano.probarGolosinas()
+		assert.equals(,alfajor.peso())
+	}
