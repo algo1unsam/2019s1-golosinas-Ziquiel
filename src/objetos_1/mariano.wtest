@@ -45,5 +45,35 @@ describe "tests de mariano" {
 	test "probar golosinas"{
 		mariano.comprar(alfajor)
 		mariano.probarGolosinas()
-		assert.equals(,alfajor.peso())
+		assert.equals(240,mariano.mostrar())
+	}
+	test "hay golosinas sin tacc"{
+		mariano.comprar(alfajor)
+		assert.equals(false,mariano.hayGolosinasSinTacc())
+	}
+	test "precios cuidados"{
+		mariano.comprar(alfajor)
+		assert.equals(false,mariano.preciosCuidados())
+	}
+	test "buscar sabor en la bolsa"{
+		mariano.comprar(alfajor)
+		assert.equals(alfajor,mariano.golosinaDeSabor(chocolate))
+	}
+	test "buscar sabor en la bolsa con varias golosinas"{
+		mariano.comprar(alfajor)
+		assert.equals(alfajor,mariano.golosinasDeSabor(chocolate))
+	}
+	test "chequea todos los gustos"{
+		mariano.comprar(alfajor)
+		assert.equals([chocolate],mariano.sabores())
+	}
+	test "golosina mas cara"{
+		mariano.comprar(alfajor)
+		mariano.comprar(bombon)
+		assert.equals(alfajor,mariano.golosinaMasCara())
+	}
+	test "suma de peso de golosinas de la bolsa"{
+		mariano.comprar(alfajor)
+		mariano.comprar(bombon)
+		assert.equals(315,mariano.pesoGolosinas())
 	}

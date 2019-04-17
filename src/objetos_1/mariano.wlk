@@ -11,9 +11,7 @@ object mariano {
 		//gustos.add(#{golosina.gusto()})
 	}
 	
-	method mostrar(){
-		return bolsa
-	}
+	method mostrar()= bolsa
 	method desechar(golosina) {
 		bolsa.remove( golosina )
 	}
