@@ -35,17 +35,17 @@ describe "tests de mariano" {
 */
 	test "comprar golosinas" {
 		mariano.comprar(alfajor)
-		assert.equals(alfajor, mariano.mostrar())
+		assert.equals(true, mariano.bolsa().contains(alfajor))
 	}
 	test "desechar golosinas"{
 		mariano.comprar(alfajor)
 		mariano.desechar(alfajor)
-		assert.equals(#{},mariano.mostrar())
+		assert.equals(#{},mariano.bolsa())
 	}
 	test "probar golosinas"{
 		mariano.comprar(alfajor)
 		mariano.probarGolosinas()
-		assert.equals(240,mariano.mostrar())
+		assert.equals(240,alfajor.peso())
 	}
 	test "hay golosinas sin tacc"{
 		mariano.comprar(alfajor)
