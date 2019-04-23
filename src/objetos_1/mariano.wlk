@@ -5,7 +5,8 @@ object mariano {
 	// definimos algunos métodos para que compile el test
 	var bolsa = #{}
 	//var gustos = []
-
+	var golosinasDeseadas = #{bombon,alfajor,caramelo,chupetin,oblea,chocolatin,golosinaBaniada,tuttifrutti}
+	var gustosDeseados = #{bombon.gusto(),alfajor.gusto(),caramelo.gusto(),chupetin.gusto(),oblea.gusto(),chocolatin.gusto(),golosinaBaniada.gusto(),tuttifrutti.gusto()}
 	method comprar(golosina) {
 		bolsa.add(golosina)
 		//gustos.add(#{golosina.gusto()})
@@ -45,5 +46,11 @@ object mariano {
 	method pesoGolosinas(){
 		return bolsa.sum{golosina=> golosina.peso()}
 		}
+	method golosinasFaltantes(){
+		return golosinasDeseadas.difference(bolsa)
+	} 	
+	method gustosFaltantes(){
+		return gustosDeseados.difference(bolsa)
+	}
 }
 
